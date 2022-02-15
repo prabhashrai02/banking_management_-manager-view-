@@ -1,0 +1,25 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(146, 149, 151);
+    align-items: center;
+}
+
+.Navbar_bank {
+    display: flex;
+    margin-left: 10px;
+}
+
+.Navbar_options {
+    display: flex;
+}
+
+.Navbar_add {
+    margin-right: 40px;
+}
+
+.Navbar_manager {
+    margin-right: 10px;
+}
