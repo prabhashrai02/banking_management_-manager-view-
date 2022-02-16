@@ -4,13 +4,12 @@ import Card from '../Card/Card';
 import './Maincontent.css';
 
 const Maincontent = (props) => {
-    console.log(props);
 
     const [interest_display, setinterest_display] = useState('hide');
     const [interest_button, setinterest_button] = useState('Calculate Interest');
 
     const show_interest=()=>{
-        if(interest_display == "hide"){
+        if(interest_display === "hide"){
             setinterest_display("show");
             setinterest_button("Remove Interest");
         }

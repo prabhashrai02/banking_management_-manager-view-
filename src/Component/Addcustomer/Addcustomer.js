@@ -27,7 +27,6 @@ const Addcustomer = (props) => {
         setenteredUsername('');
 
         props.addCustomer(data);
-        console.log(data);
     }
 
     const ChangeUsername = (event) => {
