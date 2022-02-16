@@ -20,6 +20,10 @@ const Maincontent = (props) => {
         props.remove(id);
     }
 
+    const update=(data, index)=>{
+        props.edit(true, data, index);
+    }
+
     return (
         <Card className="users">
             <ul>
@@ -43,7 +47,7 @@ const Maincontent = (props) => {
                             }
                         </div>
                         <div>
-                            <Button className="Customer_update">Update</Button>
+                            <Button className="Customer_update" onClick={()=>update(user, index)}>Update</Button>
                             {
                                 index === indx &&
                                 <Button className="Customer_update" onClick={() => show_interest(index)}>Remove Interest</Button>
