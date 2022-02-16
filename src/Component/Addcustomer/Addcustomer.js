@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Button from '../Button/Button';
+import Card from '../Card/Card';
 import './Addcustomer.css';
 
 const Addcustomer=()=>{
@@ -34,31 +35,30 @@ const Addcustomer=()=>{
     }    
 
     return (
-            <div className='input'>
-
-                <form onSubmit={AddUserHandler}>
-                    <label htmlFor="username">Enter customer's Name</label>
+        <Card className='input'>
+            <form onSubmit={AddUserHandler}>
+                <label htmlFor="username">Enter customer's Name</label>
+            
+                <input type='text' 
+                id='username' 
+                placeholder='Eg. Prabhash Rai'
+                value={enteredUsername}
+                onChange={ChangeUsername}
+                ></input>
                 
-                    <input type='text' 
-                    id='username' 
-                    placeholder='Eg. Prabhash Rai'
-                    value={enteredUsername}
-                    onChange={ChangeUsername}
-                    ></input>
-                    
-                    <label htmlFor="balance">Enter customer's balance</label>
+                <label htmlFor="balance">Enter customer's balance</label>
 
-                    <input type='number' 
-                    id='balance' 
-                    placeholder='Eg. 21'
-                    onChange={Changebalance}
-                    value={enteredbalance}
-                    ></input>
-                    
-                    <Button type='submit' 
-                    >Add User</Button>
-                </form>
-            </div>
+                <input type='number' 
+                id='balance' 
+                placeholder='Eg. 21'
+                onChange={Changebalance}
+                value={enteredbalance}
+                ></input>
+                
+                <Button type='submit' 
+                >Add Customer</Button>
+            </form>
+        </Card>
             
     )
 }
