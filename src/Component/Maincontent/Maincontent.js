@@ -1,25 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from '../Button/Button';
 import Card from '../Card/Card';
 import './Maincontent.css';
 
 const Maincontent = (props) => {
 
-    const [interest_display, setinterest_display] = useState('hide');
-    const [interest_button, setinterest_button] = useState('Calculate Interest');
+    const [indx, setindx] = useState('');
 
-    const show_interest=()=>{
-        if(interest_display === "hide"){
-            setinterest_display("show");
-            setinterest_button("Remove Interest");
+    const show_interest = (index) => {
+        if(indx===index){
+            setindx('');
         }
         else{
-            setinterest_display("hide");
-            setinterest_button("Calculate Interest");
+            setindx(index);
         }
     }
 
-    const remove=(id)=>{
+    const remove = (id) => {
         props.remove(id);
     }
 
@@ -38,14 +35,24 @@ const Maincontent = (props) => {
                             <div>
                                 <b>Balance:</b> {user.balance}
                             </div>
-                            <div className={interest_display}>
-                                <b>Interest Earned:</b> {(user.interest * user.balance)/100}
-                            </div>
+                            {
+                                index === indx &&
+                                <div>
+                                    <b>Interest Earned:</b> {(user.interest * user.balance) / 100}
+                                </div>
+                            }
                         </div>
                         <div>
                             <Button className="Customer_update">Update</Button>
-                            <Button className="Customer_update" onClick={show_interest}>{interest_button}</Button>
-                            <Button className="Customer_update" onClick={ () => remove(index)}>Remove</Button>
+                            {
+                                index === indx &&
+                                <Button className="Customer_update" onClick={() => show_interest(index)}>Remove Interest</Button>
+                            }
+                            {
+                                index !== indx &&
+                                <Button className="Customer_update" onClick={() => show_interest(index)}>Calculate Interest</Button>
+                            }
+                            <Button className="Customer_update" onClick={() => remove(index)}>Remove</Button>
                         </div>
                     </li>
                 ))}
