@@ -19,10 +19,14 @@ const Maincontent = (props) => {
         }
     }
 
+    const remove=(id)=>{
+        props.remove(id);
+    }
+
     return (
         <Card className="users">
             <ul>
-                {props.customers.map(user => (
+                {props.customers.map((user, index) => (
                     <li key={user.accountNo}>
                         <div>
                             <div>
@@ -41,6 +45,7 @@ const Maincontent = (props) => {
                         <div>
                             <Button className="Customer_update">Update</Button>
                             <Button className="Customer_update" onClick={show_interest}>{interest_button}</Button>
+                            <Button className="Customer_update" onClick={ () => remove(index)}>Remove</Button>
                         </div>
                     </li>
                 ))}

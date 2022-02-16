@@ -17,29 +17,18 @@ const Homepage = () => {
         });
     };
 
-    const data = [
-        {
-            accountNo: Math.random().toString(),
-            name: `Prabhash Rai`,
-            balance: 10000,
-        },
-        {
-            accountNo: Math.random().toString(),
-            name: `Prabhash Rai`,
-            balance: 10000,
-        },
-        {
-            accountNo: Math.random().toString(),
-            name: `Prabhash Rai`,
-            balance: 10000,
-        },
-    ] 
+    const remove_customer = (id) => {
+        const userData = [...adddata];
+
+        userData.splice(id, 1);
+        setadddata(userData);
+    }
 
     return (
         <Fragment>
             <Navbar />
             <Addcustomer addCustomer={addUserHandler} />
-            <Maincontent customers = {adddata}/>
+            <Maincontent customers={adddata} remove={remove_customer} />
         </Fragment>
     )
 }
