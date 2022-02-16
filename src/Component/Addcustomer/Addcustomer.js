@@ -6,11 +6,12 @@ import './Addcustomer.css';
 const Addcustomer = (props) => {
     const [enteredUsername, setenteredUsername] = useState('');
     const [enteredbalance, setenteredbalance] = useState('');
+    const [enteredinterest, setenteredinterest] = useState('');
 
     const AddUserHandler = (event) => {
         event.preventDefault();
 
-        if (enteredUsername.trim().length === 0 || +enteredbalance < 1) {
+        if (enteredUsername.trim().length === 0 || +enteredbalance < 1 || +enteredinterest < 1 || +enteredinterest > 100) {
             return;
         }
 
@@ -18,8 +19,10 @@ const Addcustomer = (props) => {
             accountNo: Math.random().toString(),
             name: enteredUsername,
             balance: enteredbalance,
+            interest: enteredinterest
         }
 
+        setenteredinterest('');
         setenteredbalance('');
         setenteredUsername('');
 
@@ -33,6 +36,10 @@ const Addcustomer = (props) => {
 
     const Changebalance = (event) => {
         setenteredbalance(event.target.value);
+    }
+
+    const Changeinterest = (event) => {
+        setenteredinterest(event.target.value);
     }
 
     return (
@@ -51,9 +58,17 @@ const Addcustomer = (props) => {
 
                 <input type='number'
                     id='balance'
-                    placeholder='Eg. 21'
+                    placeholder='Eg. 10000'
                     onChange={Changebalance}
                     value={enteredbalance}
+                ></input>
+
+                <label htmlFor="balance">Interest Rate</label>
+                <input type='number'
+                    id='interest_rate'
+                    placeholder='Eg. 5%'
+                    onChange={Changeinterest}
+                    value={enteredinterest}
                 ></input>
 
                 <Button type='submit'

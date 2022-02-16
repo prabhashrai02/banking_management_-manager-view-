@@ -33,3 +33,7 @@
   background: #741188;
   border-color: #741188;
 }
+
+.hide {
+  display: none;
+}
