@@ -46,7 +46,7 @@ const Maincontent = (props) => {
                                 </div>
                             }
                         </div>
-                        <div>
+                        <div className='button_wrapper'>
                             <Button className="Customer_update" onClick={()=>update(user, index)}>Update</Button>
                             {
                                 index === indx &&

@@ -37,3 +37,15 @@
 .hide {
   display: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .button_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  } 
+
+  .Customer_update {
+    margin-bottom: 10px;
+  }
+}
