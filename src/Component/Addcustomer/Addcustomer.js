@@ -9,28 +9,28 @@ const Addcustomer = (props) => {
     const username = props.editing.data.name;
     const balance = props.editing.data.balance;
     const interest = props.editing.data.interest;
-    
+
     const [enteredUsername, setenteredUsername] = useState(props.editing.isediting === true ? username : '');
     const [enteredbalance, setenteredbalance] = useState(props.editing.isediting === true ? balance : '');
     const [enteredinterest, setenteredinterest] = useState(props.editing.isediting === true ? interest : '');
 
     useEffect(() => {
     }, [enteredUsername, enteredbalance, enteredinterest]);
-    
+
     const AddUserHandler = (event) => {
         event.preventDefault();
-        
+
         if (enteredUsername.trim().length === 0 || +enteredbalance < 1 || +enteredinterest < 1 || +enteredinterest > 100) {
             return;
         }
-        
+
         const data = {
             accountNo: isediting ? props.editing.data.accountNo : Math.random().toString(),
             name: isediting ? props.editing.data.name : enteredUsername,
             balance: enteredbalance,
             interest: enteredinterest
         }
-        
+
         setenteredinterest('');
         setenteredbalance('');
         setenteredUsername('');
@@ -39,19 +39,19 @@ const Addcustomer = (props) => {
 
         isediting ? props.updated(data) : props.addCustomer(data);
     }
-    
+
     const ChangeUsername = (event) => {
         setenteredUsername(event.target.value);
     }
-    
+
     const Changebalance = (event) => {
         setenteredbalance(event.target.value);
     }
-    
+
     const Changeinterest = (event) => {
         setenteredinterest(event.target.value);
     }
-    
+
     return (
         <Card className='input'>
             <form onSubmit={AddUserHandler}>
@@ -62,7 +62,7 @@ const Addcustomer = (props) => {
                     placeholder='Eg. Prabhash Rai'
                     value={enteredUsername}
                     onChange={ChangeUsername}
-                    ></input>
+                ></input>
 
                 <label htmlFor="balance">Enter customer's balance</label>
 
@@ -71,7 +71,7 @@ const Addcustomer = (props) => {
                     placeholder='Eg. 10000'
                     onChange={Changebalance}
                     value={enteredbalance}
-                    ></input>
+                ></input>
 
                 <label htmlFor="balance">Interest Rate</label>
                 <input type='number'
@@ -79,15 +79,15 @@ const Addcustomer = (props) => {
                     placeholder='Eg. 5%'
                     onChange={Changeinterest}
                     value={enteredinterest}
-                    ></input>
+                ></input>
 
-                <Button type='submit'
-                >Add Customer</Button>
+                <Button type='submit' className="user_mode"
+                > {isediting ? "Update Customer" : "Add Customer"}</Button>
 
             </form>
         </Card>
 
-)
+    )
 }
 
 export default Addcustomer;

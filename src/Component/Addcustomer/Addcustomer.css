@@ -24,3 +24,19 @@
     outline: none;
     border-color: #4f005f;
   }
+
+  
+  .user_mode {
+    margin-right: 10px;
+    font: inherit;
+    border: 1px solid #4f005f;
+    background: #4f005f;
+    color: white;
+    cursor: pointer;
+}
+
+.user_mode:hover,
+.user_mode:active {
+  background: #741188;
+  border-color: #741188;
+}
