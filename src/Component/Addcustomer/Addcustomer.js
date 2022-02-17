@@ -6,13 +6,18 @@ import './Addcustomer.css';
 const Addcustomer = (props) => {
 
     const [isediting, setisediting] = useState(props.editing.isediting === true ? true : false);
-    const username = props.editing.data.name;
-    const balance = props.editing.data.balance;
-    const interest = props.editing.data.interest;
 
-    const [enteredUsername, setenteredUsername] = useState(props.editing.isediting === true ? username : '');
-    const [enteredbalance, setenteredbalance] = useState(props.editing.isediting === true ? balance : '');
-    const [enteredinterest, setenteredinterest] = useState(props.editing.isediting === true ? interest : '');
+    const [enteredUsername, setenteredUsername] = useState('');
+    const [enteredbalance, setenteredbalance] = useState('');
+    const [enteredinterest, setenteredinterest] = useState('');
+
+    useEffect(() => {
+        setisediting(props?.editing?.isediting ?? false);
+        setenteredUsername(props?.editing?.data?.name ?? " ");
+        setenteredbalance(props?.editing?.data?.balance ?? " ");
+        setenteredinterest(props?.editing?.data?.interest ?? " ")
+    }, [props.editing.isediting, props.editing.data])
+    
 
     useEffect(() => {
     }, [enteredUsername, enteredbalance, enteredinterest]);
@@ -34,10 +39,13 @@ const Addcustomer = (props) => {
         setenteredinterest('');
         setenteredbalance('');
         setenteredUsername('');
+
+        console.log(isediting);
+
+        isediting ? props.updated(data) : props.addCustomer(data);
         setisediting(false);
 
 
-        isediting ? props.updated(data) : props.addCustomer(data);
     }
 
     const ChangeUsername = (event) => {
