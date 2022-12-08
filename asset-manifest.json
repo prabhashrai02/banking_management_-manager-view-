@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/banking_management_-manager-view-/static/css/main.550beb21.css",
+    "main.js": "/banking_management_-manager-view-/static/js/main.8b31889d.js",
+    "static/js/787.57e7c158.chunk.js": "/banking_management_-manager-view-/static/js/787.57e7c158.chunk.js",
+    "static/media/bank_logo.svg": "/banking_management_-manager-view-/static/media/bank_logo.1ecdedda42886af2c0993efbecfe3bc1.svg",
+    "index.html": "/banking_management_-manager-view-/index.html",
+    "main.550beb21.css.map": "/banking_management_-manager-view-/static/css/main.550beb21.css.map",
+    "main.8b31889d.js.map": "/banking_management_-manager-view-/static/js/main.8b31889d.js.map",
+    "787.57e7c158.chunk.js.map": "/banking_management_-manager-view-/static/js/787.57e7c158.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.550beb21.css",
+    "static/js/main.8b31889d.js"
+  ]
+}
